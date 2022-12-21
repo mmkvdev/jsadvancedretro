@@ -1,9 +1,15 @@
-//1
-setTimeout(()=>{console.log('1', 'is the loneliest number')}, 0)
-setTimeout(()=>{console.log('2', 'can be as bad as one')}, 10)
+let son = {
+  name: 'John'
+};
 
-//2
-Promise.resolve('hi').then((data)=> console.log('2', data))
+let father = {
+  name: 'Wick'
+};
 
-//3
-console.log('3','is a crowd')
+son.father = father;
+father.son = son;
+
+son = null;
+father = null;
+
+console.log(son, father);
