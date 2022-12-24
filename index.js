@@ -1,15 +1,14 @@
-// example 2
+// example 4
 
-// JS Engine rewrites function a's in memory
-a();
-
-function a () {
-  console.log('one');
+function bigBrother(){
+  function littleBrother() {
+    return 'it is me!';
+  }
+  return littleBrother();
+  function littleBrother() {
+    return 'no me!';
+  }
 }
 
-a(); 
-function a () {
-  console.log('two');
-}
-
-a();
+// Before running this code, what do you think the output is?
+console.log(bigBrother());
