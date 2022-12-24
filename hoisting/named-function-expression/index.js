@@ -24,3 +24,11 @@ console.log('this will print the name of the function definition name explicitly
 const c = a;
 
 console.log('this will still show the previous value even if its assigned to a different variable: ', c.name);
+
+// arrow functions -> behaviour is the same
+const a = () => {
+  console.log('a is called');
+}
+
+const b = a.name
+console.log(b);
