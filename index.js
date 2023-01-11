@@ -1,16 +1,32 @@
-function printName () {
-  var c = 'c';
-  return 'Richard Hendricks';
-}
+// var x = 'var';
 
-function findName () {
-  var b = 'b';
-  return printName();
-}
+// function printName () {
+//   var c = 'c';
+//   console.log(x);
+//   return 'Richard Hendricks';
+// }
+
+// function findName () {
+//   var b = 'b';
+//   return printName();
+// }
+
+// function sayMyName () {
+//   var a = 'a';
+//   return findName();
+// }
+
+// console.log(sayMyName());
 
 function sayMyName () {
   var a = 'a';
-  return findName();
+  return function findMyName() {
+    var b = 'b';
+    return function printMyName() {
+      var c = 'c'
+      return 'Varma';
+    }
+  }
 }
 
-console.log(sayMyName());
+console.log(sayMyName()()());
