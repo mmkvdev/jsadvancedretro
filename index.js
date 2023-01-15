@@ -1,3 +1,4 @@
+// scope resolution
 var firstNum = 1;
 
 function add () {
@@ -7,3 +8,5 @@ function add () {
 }
 
 console.log(add());
+
+
