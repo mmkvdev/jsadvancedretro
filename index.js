@@ -1,13 +1,26 @@
-var firstNum = 1;
+a = 1;
 
-// local scope for number - only thirdNum is local to number()    // because it was explicitly declared. secondNum is implicitly declared in the    // the global scope.
-function number () {
-  secondNum = 2;
-  var thirdNum = 3;
-  return secondNum + firstNum;
-}
+var b = 2;
+
+function outer(z) {  
+  b = 3;  
+  c = 4;  
+  var d = 5;  
+  e = 6;
+  function inner() {    
+    var e = 0;    
+    d = 2 * d;    
+    return d;  
+  }  
+  return inner();  
+  var e;
+};
 
 
-// what do we have access to in the global scope?number(); // 3firstNum; // 1secondNum; // 2thirdNum; // Reference Error: thirdNum is not defined
+outer(1);
 
-console.log(number());
+
+
+// global - a,b -> 2 | 3, outer
+
+// local - d, e, inner
