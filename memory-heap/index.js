@@ -14,3 +14,16 @@ console.log({ string });
 
 console.log({ object }); 
 
+function subtractTwo (num) {
+    return num - 2;
+}
+
+// JS Engine allocates memory to this function
+function calculate () {
+    const sumTotal = 4 + 5;
+    return subtractTwo(sumTotal);
+}
+
+// so whenever we're calling this function, engine will get this from memory 
+calculate();
+
