@@ -15,3 +15,6 @@ const firstName = falconWarriorName.slice(0,4);
 
 console.log(firstName);
 
+/**
+ * Primitive values are immutable, which means that instead of changing the original value, JS creates a new one
+ */
