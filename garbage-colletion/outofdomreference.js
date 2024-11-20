@@ -11,7 +11,7 @@ function removeAllElements() {
 }
 
 
-// when you remove any of these elements, you'll probably have want to make sure to remove this element from the array as well
+// when you remove any of these elements, you'll probably want to make sure to remove this element from the array as well
 // otherwise the DOM elements won't be collected
 
 // improved function
