@@ -2,7 +2,8 @@ function b () {
   var b = 10;
   c();
   function c () {
-    console.log(b);
+    var c = 30;
+    console.log(b, c);
   }
 }
 
