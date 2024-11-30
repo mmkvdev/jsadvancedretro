@@ -23,7 +23,7 @@ function marry (person1, person2) {
 
 console.log(marry('josh', 'mary'));
 
-// using rest params
+// using rest params (spread operator)
 function marry1 (...args) {
   console.log('rest parameters: ', args);
   // converting arguments to array
