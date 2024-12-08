@@ -46,7 +46,7 @@ const arrowObj = {
 
 arrowObj.fights();
 
-// using bind method to bind the value of this to the object maintaining the method
+// using bind method to bind the value of `this` to the object maintaining the method
 const heroObj = {
     name: 'Diana',
     subHeroObj: function () {
