@@ -15,3 +15,23 @@ const { testing } = bindExample;
 testing()();
 
 bindExample.testing()();
+
+
+// example 2
+const wizard = {
+    name: 'Doctor Strange',
+    health: 50,
+    heal () {
+        this.health = 100;
+    }
+}
+
+const archer = {
+    name: 'Wanda',
+    health: 30,
+}
+
+console.log('before: ', archer);
+const newHealMethod = wizard.heal.bind(archer);
+newHealMethod();
+console.log('after: ', archer);
