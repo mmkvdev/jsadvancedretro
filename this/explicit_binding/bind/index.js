@@ -1,4 +1,4 @@
-// `bind` returns a new function with a certain context and parameters
+// `bind` returns a new function with a certain context(preset) and parameters (partially applied arguments)
 // usually used when we want to call a function at a later point in time with a certain context or a certain type of `this` keyword
 const bindExample = {
     name: 'bind example',
@@ -7,7 +7,7 @@ const bindExample = {
         const subTesting = function () {
             console.log('testing: ', this);
         }
-        return subTesting.bind(this);
+        return subTesting.bind(this); // called bound function
     }
 }
 
@@ -35,3 +35,10 @@ console.log('before: ', archer);
 const newHealMethod = wizard.heal.bind(archer);
 newHealMethod();
 console.log('after: ', archer);
+
+/**
+ * preserving context
+ * partial function application
+ * context control
+ * Deferred Execution
+ */
