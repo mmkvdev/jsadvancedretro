@@ -32,8 +32,8 @@ const taskRunnerIterative = async (tasks, cb) => {
     try {
       const res = await task();
       result.push(res);
-    } catch (error) {
-      error.push(error);
+    } catch (err) {
+      error.push(err);
     }
   }
 
@@ -43,12 +43,14 @@ const taskRunnerIterative = async (tasks, cb) => {
 const taskRunnerRecursion = (tasks, cb) => {
   const result = [];
   const error = [];
-  const recursiveHelper = (ptr = 0) => {
-    if (ptr === tasks.length) {
+  const recursiveHelper = (index = 0) => {
+    // if all the tasks are processed, invoke the callback with results and errors
+    if (index === tasks.length) {
       cb(result, error);
       return;
     }
-    tasks[ptr]()
+
+    tasks[index]()
       .then((num) => {
         result.push(num);
       })
@@ -56,11 +58,15 @@ const taskRunnerRecursion = (tasks, cb) => {
         error.push(num);
       })
       .finally(() => {
-        recursiveHelper(++ptr);
+        recursiveHelper(++index);
       });
   };
   recursiveHelper();
 };
 
-taskRunnerIterative(tasks, (result, err) => console.log(result, err));
-taskRunnerRecursion(tasks, (result, err) => console.log(result, err));
+taskRunnerIterative(tasks, (result, err) =>
+  console.log("iterative: ", result, err)
+);
+taskRunnerRecursion(tasks, (result, err) =>
+  console.log("recursion: ", result, err)
+);
