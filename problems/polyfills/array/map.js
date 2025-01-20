@@ -6,9 +6,10 @@
  * element - current processed element
  * index - the index of current element
  * array - map() was called upon
+ * thisArg - used as the context `this` value inside the callbackFn
  */
 
-Array.prototype.customArrayMap = function (callback) {
+Array.prototype.customArrayMap = function (callback, thisArg) {
   if (typeof callback !== "function") {
     throw new TypeError(`${callback} is not a function`);
   }
@@ -17,7 +18,7 @@ Array.prototype.customArrayMap = function (callback) {
   // the value of `this` is the user input array
   // for every iteration, invoke the callback and store the result in a result array
   for (let i = 0; i < this.length; i++) {
-    result.push(callback(this[i], i, this));
+    result.push(callback.call(thisArg, this[i], i, this));
   }
 
   // return the result array
@@ -28,6 +29,17 @@ const array = [1, 2, 3, 4, 5];
 const doubledArrayValues = array.customArrayMap((x) => x * 2); // [2, 4, 6, 8, 10]
 
 // exception cases - when user didn't supply any callback functions
-const tripleArrayValues = array.customArrayMap(); // throws a TypeError
+// const tripleArrayValues = array.customArrayMap(); // throws a TypeError
 
-console.log({ doubledArrayValues, tripleArrayValues });
+function incrementValBy3(val) {
+  return this.val * val * 3;
+}
+
+// example for thisArg
+const multiplyBy10AfterTriplingArrayValues = array.customArrayMap(
+  incrementValBy3,
+  {
+    val: 10,
+  }
+);
+console.log({ doubledArrayValues, multiplyBy10AfterTriplingArrayValues });
