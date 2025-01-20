@@ -12,7 +12,7 @@
  * `thisArg`
  */
 
-Array.prototype.customFilter = function (callback) {
+Array.prototype.customFilter = function (callback, thisArg) {
   if (typeof callback !== "function") {
     throw new TypeError(`${callback} is not a function`);
   }
@@ -21,7 +21,7 @@ Array.prototype.customFilter = function (callback) {
 
   // iterate over the user supplied input array
   for (let i = 0; i < this.length; i++) {
-    if (callback(this[i], i, this)) {
+    if (callback.call(thisArg, this[i], i, this)) {
       result.push(this[i]);
     }
   }
@@ -32,6 +32,15 @@ Array.prototype.customFilter = function (callback) {
 const array = [1, 2, 3, 4, 5, 6];
 const filterEvenNumbers = array.customFilter((x) => x % 2 === 0); // [2, 4, 6]
 
-const filterEvenNumbersException = array.customFilter(); // [2, 4, 6]
+// const filterEvenNumbersException = array.customFilter(); // [2, 4, 6]
 
-console.log({ filterEvenNumbers });
+function isGreaterThan(val) {
+  return val > this.threshold;
+}
+
+// example using thisArg
+const isGreaterThanThreshold = array.customFilter(isGreaterThan, {
+  threshold: 1,
+});
+
+console.log({ filterEvenNumbers, isGreaterThanThreshold });
