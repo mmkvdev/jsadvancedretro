@@ -8,14 +8,14 @@
  * array - every() was called upon
  */
 
-Array.prototype.customEvery = function (callbackFn) {
+Array.prototype.customEvery = function (callbackFn, thisArg) {
   if (typeof callbackFn !== "function") {
     throw new TypeError(`${callbackFn} is not a function`);
   }
 
   // iterate over the user input array and check if any element fails the test, in which case return `false` immediately.
   for (let i = 0; i < this.length; i++) {
-    if (!callbackFn(this[i], i, this)) {
+    if (!callbackFn.call(thisArg, this[i], i, this)) {
       return false;
     }
   }
@@ -30,4 +30,12 @@ const checkIfAnyValueIsLessThanZero = array.customEvery(
   (currValue) => currValue > 0
 );
 
-console.log({ checkIfAnyValueIsLessThanZero });
+// passing optional thisArg
+function shouldBeGreaterThanThreshold(val) {
+  return val > this.threshold;
+}
+
+const isGreaterThanThreshold = array.customEvery(shouldBeGreaterThanThreshold, {
+  threshold: 0,
+});
+console.log({ checkIfAnyValueIsLessThanZero, isGreaterThanThreshold });
