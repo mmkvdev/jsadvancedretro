@@ -1,4 +1,4 @@
-// Encapsulation
+// Encapsulation (Principle of Least Privilege)
 function createCounter() {
   let count = 0;
 
