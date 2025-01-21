@@ -9,6 +9,10 @@ Function.prototype.customApply = function (thisArg, args) {
     throw new TypeError(`provided ${thisArg} is not a function`);
   }
 
+  if (!Array.isArray(args)) {
+    throw new TypeError("provided arguments must be of type array");
+  }
+
   // if user didn't provided the `thisArg`, default to `globalThis`
   thisArg = thisArg ?? globalThis;
 
@@ -16,7 +20,7 @@ Function.prototype.customApply = function (thisArg, args) {
   const uniqueFnKey = Symbol("fn");
   thisArg[uniqueFnKey] = this;
 
-  const result = thisArg[uniqueFnKey](args);
+  const result = thisArg[uniqueFnKey](...args);
 
   delete thisArg[uniqueFnKey];
 
