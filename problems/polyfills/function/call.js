@@ -12,7 +12,7 @@ Function.prototype.myCall = function (thisArg, ...args) {
   // if thisArg is not provided, default the value to `globalThis`
   thisArg = thisArg ?? globalThis;
 
-  // attach the contextual function to the provided and invoke it in the context of `thisArg`
+  // attach the contextual function to the provided `thisArg` and invoke it in the context of `thisArg`
   // creating a unique key because we don't know whether the custom function prop exists in the contextual function or not
   const uniqueFnKey = Symbol("fn");
   thisArg[uniqueFnKey] = this;
