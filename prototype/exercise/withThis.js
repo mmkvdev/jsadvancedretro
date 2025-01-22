@@ -5,6 +5,7 @@ Function.prototype.myBind = function (thisArg, ...boundArgs) {
     throw new TypeError("invoking function is not a functio type");
   }
 
+  thisArg = thisArg ?? globalThis;
   let fn = this;
   // return a function
   return function (...args) {
