@@ -29,7 +29,7 @@ console.log(lizard.sing());
 // check if an object is a prototype of another
 console.log(dragon.isPrototypeOf(lizard)); // true
 
-console.log(lizard.isPrototypeOf(dragon)); // true
+console.log(lizard.isPrototypeOf(dragon)); // false
 
 // iterate over lizard to see it's own properties and inherited properties
 for (let prop in lizard) {
