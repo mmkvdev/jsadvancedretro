@@ -33,7 +33,8 @@ console.log({
   peter,
   sam,
   age: [peter.age, sam.age],
-  chain: Elf.isPrototypeOf(peter),
+  chain: Elf.prototype.isPrototypeOf(peter),
+  obj: Elf.prototype,
 });
 
 // creating an object using constructor functions
