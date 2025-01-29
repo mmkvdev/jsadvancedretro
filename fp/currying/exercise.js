@@ -31,6 +31,16 @@ function curryAdv(f) {
   };
 }
 
-let curriedSum2 = curryAdv(sum2);
+function curryAdv2(f) {
+  return function curried(...args) {
+    if (args.length >= f.length) {
+      return f.apply(this, args);
+    }
+
+    curried.bind(this, ...args);
+  };
+}
+
+let curriedSum2 = curryAdv2(sum2);
 console.log(curriedSum2(1, 2, 3));
-// console.log(curriedSum2(1)(2)(3));
+console.log(curriedSum2(1)(2)(3));
