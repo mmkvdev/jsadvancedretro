@@ -1,0 +1,24 @@
+{
+  "name": "fetch",
+  "version": "1.0.0",
+  "description": "javascript advanced concepts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmkvdev/jsadvancedretro.git"
+  },
+  "author": "mmkvarma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmkvdev/jsadvancedretro/issues"
+  },
+  "homepage": "https://github.com/mmkvdev/jsadvancedretro#readme",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
+}
