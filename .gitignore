@@ -1,3 +1,5 @@
 .vscode/
 .replit
 replit.*
+node_modules
+package-lock.json
