@@ -60,7 +60,21 @@ function getServiceCostWithPromises(services) {
 }
 
 // promise chaining
-getUsersWithPromises(100)
-  .then(getServicesWithPromises)
-  .then(getServiceCostWithPromises)
-  .then(console.log);
+// getUsersWithPromises(100)
+//   .then(getServicesWithPromises)
+//   .then(getServiceCostWithPromises)
+//   .then(console.log);
+
+// async-await allows to write asynchronous code that looks more like a synchronous code and is more readable.
+// async-await is just a syntatic sugar for promises.
+// await can be used only inside the `async` functions.
+
+// calling three asynchronous operations in sequence
+async function showServicesCost() {
+  let user = await getUsersWithPromises(100);
+  let services = await getServicesWithPromises(user);
+  let cost = await getServiceCostWithPromises(services);
+  console.log(`The service cost is: ${cost}`);
+}
+
+showServicesCost();
