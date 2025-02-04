@@ -2,12 +2,10 @@ function debounce(func, wait = 0) {
   let timeOutId = null;
   return function (...args) {
     const context = this;
-    setTimeout(function () {
-      clearTimeout(timeOutId);
+    clearTimeout(timeOutId);
 
-      timeOutId = setTimeout(function () {
-        func.apply(context, args);
-      });
+    timeOutId = setTimeout(function () {
+      func.apply(context, args);
     }, wait);
   };
 }
@@ -41,3 +39,13 @@ setTimeout(() => {
   console.log({ a });
 }, 20);
 console.log({ a });
+
+const fn = debounce((message, i) => {
+  console.log({ message, i });
+}, 3000);
+
+fn("Hello");
+fn("Hello World!");
+fn("MMK is Cool !");
+
+for (let i = 0; i < 10000; i++) fn("MMK is calm !", i);
