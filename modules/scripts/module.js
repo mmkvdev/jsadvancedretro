@@ -1,5 +1,6 @@
 //IIFE
 // Module Pattern
+// Revealing Module Pattern
 
 var fightModule = (function () {
   var harry = "Harry Potter";
