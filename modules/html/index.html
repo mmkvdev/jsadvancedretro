@@ -5,6 +5,11 @@
         <h1>Script Demo</h1>
         <!-- <script src="../scripts/index.js"></script> -->
         <!-- <script>var fight = 'calm'</script> -->
-         <script src="../scripts/module.js"></script>
+         <!-- <script src="../scripts/module.js"></script> -->
+          <script type="module">
+            import jump, { fight } from '../patterns/es6/index.js';
+            console.log(fight('mmk', 'varma'));
+            jump();
+          </script>
     </body>
 </html>
