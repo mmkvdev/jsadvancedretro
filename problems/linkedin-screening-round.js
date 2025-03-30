@@ -1,3 +1,4 @@
+// https://imgur.com/wmnmXsX
 const Foo = function(a) {
   // function bar() {
   //   return a;
